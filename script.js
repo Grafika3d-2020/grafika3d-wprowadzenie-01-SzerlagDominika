@@ -56,23 +56,20 @@ const colorWhite = new THREE.Color('hsl(106, 100%, 90%)')
 const width = 20;
 const height = 20;
 const depth = 120;
-const cubeGeometry = new THREE.BoxGeometry( width, height, depth);
-const cubeMaterial = new THREE.MeshPhongMaterial({
-    color: colorWhite,
-    shininess: 80
-})
+const coneGeometry = new THREE.ConeGeometry( 5, 20, 32 );
+const coneMaterial = new THREE.MeshBasicMaterial( {color: 0xffff00} );
 
-const cube = new THREE.Mesh( cubeGeometry, cubeMaterial);
-scene.add (cube);
+const cone = new THREE.Mesh( coneGeometry, coneMaterial);
+scene.add (cone);
 
-cube.rotation.z = -100;
-cube.rotation.x = 20;
+cone.rotation.z = -100;
+cone.rotation.x = 20;
 
 renderer.render( scene, camera );
 
 const animate = () => {
     requestAnimationFrame(animate)
-    cube.rotation.x +=.02
+    cone.rotation.x +=.02
     renderer.render( scene, camera );
 }
 
